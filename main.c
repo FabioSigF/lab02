@@ -4,7 +4,7 @@
 
 int main()
 {
-  
+
   /* EX001
     int num;
     printf("Digite um numero inteiro: ");
@@ -55,7 +55,7 @@ int main()
     printf("A temperatura convertida para graus Fahrenheit eh %f .", fahrenheint);
   */
 
-  /* EX007 
+  /* EX007
     float c, f;
     printf("Digite a temperatura em graus fahrenheint: ");
     scanf("%f", &f);
@@ -96,14 +96,14 @@ int main()
     printf("Sua velocidade em KM/h eh: %f", km);
   */
 
-  /* EX012 
+  /* EX012
     float milhas, km;
     printf("Digite a sua distancia em milhas: ");
     scanf("%f", &milhas);
     km = 1.61*milhas;
     printf("A sua distancia em Km/h eh: %f", km);
   */
-  
+
   /*EX013
     float km, milhas;
     printf("Digite a sua distancia em quilometros: ");
@@ -113,7 +113,7 @@ int main()
   */
 
   /*EX014
-    float grau, rad; 
+    float grau, rad;
     const float pi= 3.141592;
     printf("Digite o valor de um angulo em graus: ");
     scanf("%f", &grau);
@@ -129,7 +129,7 @@ int main()
     grau = rad*180/pi;
     printf("Ao converter o angulo em radianos para graus, temos: %f", grau);
   */
-  
+
   /*EX016
     float pol, cm;
     printf("Digite um valor de comprimento em polegadas: ");
@@ -376,7 +376,6 @@ int main()
   */
 
   /*EX043
-  */
     float vtotal, vparcela, comissao;
     int qparc;
     printf("Digite o valor total do produto: ");
@@ -386,13 +385,95 @@ int main()
     if (qparc > 1) {
       printf("Voce parcelou o valor de %.2f em %d vezes.\n", vtotal, qparc);
       vparcela = vtotal/qparc;
-      printf("Sendo assim, cada parcela valerah %.2f por mes.", vparcela);
+      printf("Sendo assim, cada parcela valerah %.2f por mes.\n", vparcela);
       comissao = vtotal*0.05;
       printf("O vendedor ganha de comissao %.2f.", comissao);
-    } else
+    } else {
       vtotal *= 0.90;
       comissao = vtotal*0.05;
       printf("Com o desconto de dez porcento, o valor total a pagar sera: %.2f. O vendedor ganha de comissao %.2f.", vtotal, comissao);
+    }
+  */
 
+  /*EX044
+    float hDegrau, hTotal;
+    int hDegrauInt, hTotalInt, qDegraus;
+    printf("Qual a altura em centimetros de cada degrau da escada? ");
+    scanf("%f", &hDegrau);
+    printf("Qual altura em centimetros voce quer chegar na escada? ");
+    scanf("%f", &hTotal);
+    //Vou transformar os valores float em inteiro para verificar se é uma divisão exata.
+    hDegrauInt = hDegrau;
+    hTotalInt = hTotal;
+    //Se a divisão em float for maior que a divisão inteira, ou seja, não for uma divisão exata, o usuário vai precisar subir um degrau a mais para alcançar a altura que ele quer. Caso contrário, ele ficará um degrau abaixo da altura que deseja.
+    if((hDegrau/hTotal) > (hDegrauInt/hTotalInt))
+      qDegraus = (hTotal/hDegrau) + 1;
+    else
+      qDegraus = (hDegrauInt/hTotalInt);
+
+    printf("Sendo a altura de cada degrau %.2fcm e a altura pedida %.2fcm, voce deve subir %d degraus.", hDegrau, hTotal, qDegraus);
+  */
+
+  /*EX045
+  char upper;
+  int lower;
+  printf("Digite uma letra maiuscula: ");
+  upper = getchar();
+  lower = upper + 32;
+  printf("O caractere digitado foi %c. Em letra minuscula, fica: %c", upper, lower);
+  */
+
+  /*EX046
+  int num, a, b,c;
+  printf("Digite um numero inteiro entre 100 e 999: ");
+  scanf("%d", &num);
+  if((num >= 100) && (num <= 999)){
+    a = num/100;
+    b = (num%100)/10;
+    c = (num%100)%10;
+    printf("O numero digitado foi %d. Ao contrario, fica: %d%d%d.", num, c, b, a);
+  } else
+    printf("O numero digitado eh invalido. FIM.");
+  */
+
+  /*EX047
+  int num, u, d, c, m;
+  printf("Digite um numero inteiro entre 1000 e 9999: ");
+  scanf("%d", &num);
+  if((num >= 1000) && (num <= 9999)){
+    m = num/1000;
+    c = (num%1000)/100;
+    d = ((num%1000)%100)/10;
+    u = ((num%100)%100)%10;
+    printf("O numero digitado foi %d. Digitado em separadament, fica:\n%d\n%d\n%d\n%d", num, m, c, d, u);
+  } else
+    printf("O numero digitado eh invalido. FIM.");
+  */
+
+  /*EX048
+  int seg, h, m, ss;
+
+  printf("Digite uma quantidade de segundos: ");
+  scanf("%d", &seg);
+  if (seg > 60)
+  {
+    if ((seg > 60) && (seg <= 3600))
+    {
+      m = seg / 60;
+      ss = seg % 60;
+      printf("O valor digitado foi %d segundos, o que corresponde a %d minutos e %d segundos.", seg, m, ss);
+    }
+    else
+    {
+      h = seg / 3600;
+      m = (seg - (h * 3600)) / 60;
+      ss = (seg - (h * 3600)) % 60;
+      printf("O valor digitado foi %d segundos, o que corresponde a %d horas, %d minutos e %d segundos.", seg, h, m, ss);
+    }
+  }
+  else
+    printf("O valor digitado foi %d segundos.", seg);
+   */
+  
   return 0;
 }
