@@ -473,7 +473,119 @@ int main()
   }
   else
     printf("O valor digitado foi %d segundos.", seg);
-   */
+  */
+
+  /*EX049
+
+  int h, m, s, totSeg, exp, d, nh, nm, ns;
+  printf("Digite o horario de inicio (HH:MM:SS): ");
+  scanf("%d:%d:%d", &h, &m, &s);
+  printf("Digite a duracao da experiencia em segundos: ");
+  scanf("%d", &exp);
+
+  //Se o valor digitado foi inválido, será avisado ao usuário e o programa interrompido.
+  //Valores inválidos:
+  //  -Horas menor que 0 ou maior que 23;
+  //  -Minutos menor que 0 ou maior de 59;
+  //  -Segundos menor que 0 ou maior que 59;
+  //  -Tempo de experiência menor que 0;
+
+  if ((h < 0) || (h > 23) || (m < 0) || (m > 59) || (s < 0) || (s > 59) || (exp < 0))
+  {
+    printf("Valor digitado invalido. Siga as especificacoes informadas no enunciado.");
+  }
+  else
+  {
+    // Total de segundos que tem o horario de início
+    totSeg = (h * 3600) + (m * 60) + s;
+    // Horario de início(em segundos) + tempo de experiência
+    totSeg += exp;
+
+    // Se o total de segundos for menor que 24 horas, não precisamos dizer a quantidade de dias
+    if (totSeg < 86400)
+    {
+      nh = totSeg / 3600;
+
+      nm = (totSeg - (h * 3600)) / 60;
+      if (nm == 60)
+        nm = 0;
+
+      ns = (totSeg - (h * 3600)) % 60;
+      printf("A experiencia tem duracao de %d segundos.\nSendo o inicio da execucao %d:%d:%d, o programa acaba as %d:%d:%d do mesmo dia.", exp, h, m, s, nh, nm, ns);
+    }
+    // Se o total de segundos for maior que 24 horas, informamos quantos dias após a execução o programa estará concluído
+    else
+    {
+      d = totSeg / 86400;
+      totSeg -= d * 86400;
+      nh = totSeg / 3600;
+      nm = (totSeg - (nh * 3600)) / 60;
+      if (nm == 60)
+        nm = 0;
+
+      ns = (totSeg - (nh * 3600)) % 60;
+      printf("A experiencia tem duracao de %d segundos.\nSendo o inicio da execucao %d:%d:%d, o programa acaba %d dia(s) apos a data inicial, no horario de %d:%d:%d.", exp, h, m, s, d, nh, nm, ns);
+    }
+  }
+  */
+
+  /*EX050
+  int idade, mes, ano;
+  const int anoAtual = 2022;
+  const int mesAtual = 10;
+  printf("Qual a sua idade? ");
+  scanf("%d", &idade);
+  printf("Qual mes(numero) voce faz aniversario? ");
+  scanf("%d", &mes);
+  if((idade < 0) || (idade > 2022) || (mes <= 0)) {
+    printf("A idade ou mes que você digitou nao eh valido. FIM DO PROGRAMA.");
+  } else {
+    ano = (((anoAtual*12) + mesAtual) - ((idade*12) + mes))/12;
+    printf("Voce nasceu no ano de %d.", ano);
+  }
+  */
+
+  /*EX051
+  float x, y, dist;
+
+  printf("Digite a coordenada de x: ");
+  scanf("%f", &x);
+  printf("Digite a coordenada de y: ");
+  scanf("%f", &y);
+  dist = sqrt((x * x) + (y * y));
+
+  printf("A distancia de (%.1f,%.1f) da origem eh: %.1f", x, y, dist);
+  */
+
+  /*EX052
+  float totP, a, b, c, totAm, pa, pb, pc;
+  printf("Qual o valor do premio? ");
+  scanf("%f", &totP);
+  printf("Digite a quantidade que o amigo A investiu: ");
+  scanf("%f", &a);
+  printf("Digite a quantidade que o amigo B investiu: ");
+  scanf("%f", &b);
+  printf("Digite a quantidade que o amigo C investiu: ");
+  scanf("%f", &c);
+  //Calcular quanto todos doaram
+  totAm = a + b + c;
+  pa = (totP * a) / totAm;
+  pb = (totP * b) / totAm;
+  pc = (totP * c) / totAm;
+
+  printf("Sendo o premio %.2f:\n  O amigo A recebe: %.2f\n  O amigo B recebe: %.2f\n O amigo C recebe: %.2f", totAm, pa, pb, pc);
+  */
+
+  /*EX053
+  float comp, larg, custo;
+  const float pmTela = 70.00;
+  printf("Qual o comprimento do terreno em metros? ");
+  scanf("%f", &comp);
+  printf("Qual a largura do terreno em metros? ");
+  scanf("%f", &larg);
+  custo = (comp*2 + larg*2)*pmTela;
   
+  printf("O metro da tela eh R$%.2f. Para cercar o terreno de %.2fm de comprimento e %.2fm de largura, o preco total sera: R$%.2f.", pmTela, comp, larg, custo);
+  */
   return 0;
 }
